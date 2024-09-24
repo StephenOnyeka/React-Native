@@ -77,19 +77,20 @@ export default function HomeScreen() {
         </View>
 
         {/* Coffee cards */}
-        <View className="mt-10 py-2">
+        <View className="mt-16 py-2">
           <Carousel
             // layout={"default"}
+            // layoutCardOffset={'18'}
+            className="gap-2"
             containerCustomStyle={{ overflow: 'visible' }}
             data={coffeeItems }
-            // renderItem={() => <View><Text> A change in dialogue</Text></View>}
-            renderItem={({ item }) => <CoffeeCard item={item} />}
+            renderItem={({ item }) => <View> <CoffeeCard item={item} /> </View>}
             firstItem={1}
-            inactiveSlideOpacity={0.75}
-            inactiveSlideScale={0.77}
-            sliderWidth={400}
-            itemWidth={260}
-            slideStyle={{display: 'flex', alignItems:'center'}}
+            inactiveSlideOpacity={0.65} // opacity of inactive slides
+            inactiveSlideScale={0.77} //size of inactive slides
+            sliderWidth={400}//actual slide width
+            itemWidth={260} //card width
+            slideStyle={{display: 'flex', alignItems:'center',}}
           />
         </View>
       </SafeAreaView>
