@@ -6,12 +6,14 @@ import {
   ScrollView,
   SafeAreaView,
   StatusBar,
-  StyleSheet,
   TextInput,
   TouchableOpacity,
   FlatList,
   TouchableHighlight,
+  StyleSheet,
+  Platform,
 } from "react-native";
+import { Shadow } from "react-native-shadow-2";
 
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Fontisto from "@expo/vector-icons/Fontisto";
@@ -36,7 +38,6 @@ export default function HomeScreen() {
           </View>
           <Fontisto name="bell" size={20} color="black" />
         </View>
-
         <View className="mx-5 mt-14">
           <View className="flex-row justify-center rounded-full p-1 bg-[#e6e6e6]">
             <TextInput
@@ -77,20 +78,19 @@ export default function HomeScreen() {
         </View>
 
         {/* Coffee cards */}
-        <View className="mt-16 py-2">
+        <View className=" ">
           <Carousel
-            // layout={"default"}
-            // layoutCardOffset={'18'}
-            className="gap-2"
-            containerCustomStyle={{ overflow: 'visible' }}
-            data={coffeeItems }
-            renderItem={({ item }) => <View> <CoffeeCard item={item} /> </View>}
+            className=" border border-red-500"
+            // containerCustomStyle={{ overflow: 'visible' }}
+            data={coffeeItems}
+            renderItem={({ item }) => <CoffeeCard item={item} />}
             firstItem={1}
             inactiveSlideOpacity={0.65} // opacity of inactive slides
             inactiveSlideScale={0.77} //size of inactive slides
-            sliderWidth={400}//actual slide width
+            sliderWidth={350} //actual slide width
             itemWidth={260} //card width
-            slideStyle={{display: 'flex', alignItems:'center',}}
+            loop={true}
+            slideStyle={{ display: "flex", alignItems: "center" }}
           />
         </View>
       </SafeAreaView>

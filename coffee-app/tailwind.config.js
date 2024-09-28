@@ -39,6 +39,10 @@ module.exports = {
         750: "750px",
         800: "800px",
       },
+      boxShadow: {
+        "custom-shadow": "0px 4px 6px rgba(0, 0, 0, 0.16)", // Adjust values as needed
+        "drop-shadow": "0px 4px 6px rgba(0, 0, 0, 0.16)",
+      },
     },
   },
   plugins: [],
