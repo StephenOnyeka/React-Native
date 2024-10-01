@@ -21,7 +21,7 @@ import { categories, coffeeItems } from "../constants";
 import Carousel from "react-native-snap-carousel-expo";
 import CoffeeCard from "../components/coffeeCard";
 import { HomeModernIcon } from "react-native-heroicons/solid";
-import HomeIcon from "react-native-heroicons/solid";
+// import HomeIcon from "react-native-heroicons/solid";
 
 const icon = require("../images/10120807_1332.jpg");
 
@@ -46,7 +46,7 @@ export default function HomeScreen() {
               placeholder="Search"
               className="p-2 pl-4 flex-1 font-semibold text-gray-700 "
             />
-            <TouchableOpacity className="flex items-center justify-center rounded-full p-2 px-3 bg-[#CCAB95]">
+            <TouchableOpacity className="flex items-center justify-center rounded-full p-2 px-3 bg-contingentColor">
               <Ionicons name="search" size={20} color="white" />
             </TouchableOpacity>
           </View>

@@ -10,8 +10,10 @@ import {
 } from "react-native";
 import { StarIcon, PlusIcon } from "react-native-heroicons/solid";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 export default function CoffeeCard({ item }) {
+  const navigation = useNavigation();
   return (
     <View className=" py-4">
       <View
@@ -73,6 +75,7 @@ export default function CoffeeCard({ item }) {
           >
             <Text className="text-white font-bold text-lg">${item.price}</Text>
             <TouchableOpacity
+              onPress={()=>navigation.navigate('Product',{...item})}
               className="p-4 bg-white rounded-full"
               style={{
                 shadowColor: "#000",
