@@ -13,10 +13,10 @@ import AppNavigation from "./navigation/appNavigation";
 
 export default function App() {
   return (
-    <View>
-      <HomeScreen />
+    <>
+      {/* <HomeScreen /> */}
       <AppNavigation />
       <StatusBar backgroundColor={"white"} barStyle={"dark-content"} />
-    </View>
+    </>
   );
 }

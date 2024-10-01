@@ -1,11 +1,17 @@
 // import { View, Text } from 'react-native'
 // import NavigationContainer from
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, ThemeProvider } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { HomeIcon } from 'react-native-heroicons/solid'
-import HomeModernIcon from 'react-native-heroicons/solid'
+import {
+  HomeIcon,
+  HeartIcon,
+  HomeModernIcon,
+} from "react-native-heroicons/solid";
+// import HomeModernIcon from 'react-native-heroicons/solid'
+// import HomeModernIcon from 'react-native-heroicons/solid'
+import { themeColors } from '../theme';
 import HomeScreen from '../screens/HomeScreen'
 import { LogBox, Text, View } from 'react-native'
 
@@ -29,10 +35,14 @@ function HomeTabs() {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
-                headerShown: false, tabBarShowLabel: false, tabBarStyle: {
-                    marinBottom: 20, borderRadius: 50,
-                    backgroundColor: '#6e4b39'
-                }, tabBarItemStyle: { marginTop: 30 }
+                headerShown: false, tabBarShowLabel: false, 
+                tabBarIcon:({focused, color, size})=> menuIcons(route, focused),
+                tabBarStyle: {
+                    marginBottom: 20, borderRadius: 50,
+                    backgroundColor: '#6e4b39',
+                    marginHorizontal: 20
+                },
+                tabBarItemStyle: { marginTop: 30 }
             })}
         >
             <Tab.Screen name="home" component={HomeScreen} />
@@ -42,9 +52,19 @@ function HomeTabs() {
     )
 }
 
-const menuIcons = ( route, focused )=> {
+const menuIcons = (route, focused) => {
     let icon;
     if (route.name == 'home') {
-        icon = foused ? <HomeIcon size='38' />: <HomeModernIcon size="38"/>
+        icon = focused ? <HomeIcon size='30' color={themeColors.primary} /> : <HomeModernIcon size="30" color="black" />
+    } else if (route.name == "favourite") {
+        icon = focused ? <HeartIcon size='30' color="black" /> : <HomeModernIcon size="30" color="black" />
+    } else if (route.name == "cart") {
+        icon = focused ? <HeartIcon size='30' color="black" /> : <HomeModernIcon size="30" color="black" />
     }
+    let buttonClass = focused ? 'bg-white' : '';
+    return (
+        <View className= {"flex items-center rounded-full p-3 shadow" + buttonClass} >
+            {icon}
+        </View>
+    )
 }

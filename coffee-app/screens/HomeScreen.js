@@ -20,6 +20,8 @@ import Fontisto from "@expo/vector-icons/Fontisto";
 import { categories, coffeeItems } from "../constants";
 import Carousel from "react-native-snap-carousel-expo";
 import CoffeeCard from "../components/coffeeCard";
+import { HomeModernIcon } from "react-native-heroicons/solid";
+import HomeIcon from "react-native-heroicons/solid";
 
 const icon = require("../images/10120807_1332.jpg");
 
@@ -92,6 +94,10 @@ export default function HomeScreen() {
             loop={true}
             slideStyle={{ display: "flex", alignItems: "center" }}
           />
+          <View>
+            <HomeModernIcon size="38" />
+            {/* <HomeIcon size="38" /> */}
+          </View>
         </View>
       </SafeAreaView>
     </View>
